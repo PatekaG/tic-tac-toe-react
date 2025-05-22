@@ -5,7 +5,10 @@ import Details from "./pages/Details/Details";
 import Game from "./pages/Game/Game";
 import Header from "./components/Header/Header";
 
+
 const Router = () => {
+
+
   return (
     <BrowserRouter>
       <Header />
