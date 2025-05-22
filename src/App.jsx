@@ -4,7 +4,6 @@ import { GlobalStyles } from "./styles/Global.styled";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./styles/theme";
 import { ThemeContext } from "./contexts/ThemeContext";
-import { ModalContextProvider } from "./contexts/ModalContext";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -13,10 +12,8 @@ const App = () => {
 
   return (
     <ThemeProvider theme={mode}>
-      <ModalContextProvider>
-        <GlobalStyles />
-        <Router />
-      </ModalContextProvider>
+      <GlobalStyles />
+      <Router />
     </ThemeProvider>
   );
 };

@@ -4,10 +4,15 @@ import { ModalHeader, ModalBody, ModalFooter } from "../Modal.styled";
 import Button from "../../Header/Button/Button";
 import GameContext from "../../../contexts/GameContext";
 import { ModalContext } from "../../../contexts/ModalContext";
+import { SfxContext } from "../../../contexts/SfxContext";
+import { useNavigate } from "react-router-dom";
 
 const RoundOverModal = () => {
-  const { resetBoard, game } = useContext(GameContext);
+  const { resetBoard, game, restartGame } = useContext(GameContext);
   const { handleModal } = useContext(ModalContext);
+  const { hoverSfx, clickSfx, completedSfx } = useContext(SfxContext);
+
+  const navigate = useNavigate();
   return (
     <>
       <ModalHeader>
@@ -31,13 +36,26 @@ const RoundOverModal = () => {
         <Button
           color="#f9c811"
           onClick={() => {
+            clickSfx();
             handleModal();
             resetBoard();
           }}
+          onMouseEnter={() => hoverSfx()}
         >
           Continue
         </Button>
-        <Button color="#8437f9">Restart</Button>
+        <Button
+          color="#8437f9"
+          onClick={() => {
+            completedSfx();
+            restartGame();
+            handleModal();
+            navigate("/");
+          }}
+          onMouseEnter={() => hoverSfx()}
+        >
+          Restart
+        </Button>
       </ModalFooter>
     </>
   );
