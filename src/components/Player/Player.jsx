@@ -1,12 +1,12 @@
 import React from "react";
 import { PlayerWrapper, AvatarWrapper } from "./Player.styled";
-import Avatar, { genConfig } from "react-nice-avatar";
+import Avatar from "react-nice-avatar";
 import { Subtitle } from "../../styles/General.styled";
 
 const Player = ({ player, isPlayerActive }) => {
   return (
     <PlayerWrapper>
-      <AvatarWrapper isPlayerActive={isPlayerActive ?? false}>
+      <AvatarWrapper $isPlayerActive={isPlayerActive ?? false}>
         <Avatar {...player.AvatarConfig} />
       </AvatarWrapper>
 
