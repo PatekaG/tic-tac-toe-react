@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
   const { hoverSfx, clickSfx } = useContext(SfxContext);
   return (
-    <Container columnBased>
+    <Container $columnBased>
       <Title>TicTacToe</Title>
       <Subtitle>Play with your friends, higher score wins!</Subtitle>
       <Button
